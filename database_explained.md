@@ -1,12 +1,12 @@
-Đã giải thích xong! Tóm lại 3 điểm bạn hỏi:
+# 🗄️ Giải Thích Chi Tiết Database — Phần 1
 
-1️⃣ avatar VARCHAR(255) — Không lưu ảnh, lưu đường dẫn
+1️⃣ avatar VARCHAR(255) trong bảng users — Không lưu ảnh, lưu đường dẫn
 Database không bao giờ lưu file ảnh thật. Ảnh được lưu vào thư mục uploads/avatars/ trên ổ đĩa, còn database chỉ lưu chuỗi đường dẫn như "uploads/avatars/user_1.jpg". Khi Vue cần hiển thị thì ghép chuỗi đó vào <img src="...">. Lý do: lưu ảnh vào DB sẽ làm DB cực kỳ nặng và chậm.
 
-2️⃣ bio TEXT — Tiểu sử tác giả
+2️⃣ bio TEXT trong bảng profiles — Tiểu sử tác giả
 Bio = Biography — đoạn text tác giả tự viết giới thiệu bản thân, hiển thị trên trang hồ sơ/About. Dùng TEXT thay vì VARCHAR vì bio có thể dài hơn 255 ký tự.
 
-3️⃣ parent_id — Quan hệ cha–con trong cùng một bảng
+3️⃣ parent_id trong bảng categories và comments — Quan hệ cha–con trong cùng một bảng
 Xuất hiện ở 2 chỗ với 2 mục đích:
 
 Bảng categories: Tạo menu phân cấp (Viet → Nhật Ký, Thơ...). Danh mục gốc có parent_id = NULL, danh mục con trỏ vào id của cha.
